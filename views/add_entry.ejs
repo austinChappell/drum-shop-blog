@@ -1,0 +1,28 @@
+<% include partials/_header %>
+
+<form action="/add_post" method="POST">
+  <div class="form-group">
+    <label>Title: </label>
+    <input type="text" name="title" />
+  </div>
+  <div class="form-group">
+    <label>Author: </label>
+    <input type="text" name="author" />
+  </div>
+  <div class="form-group">
+    <label>Body: </label>
+    <textarea name="body" rows="8" cols="80"></textarea>
+  </div>
+  <input type="submit" value="Publish">
+</form>
+
+<div class="results">
+  <% results.forEach((result) => { %>
+    <h1><%= result.title %></h1>
+    <h4><%= result.author %></h4>
+    <h5><%= result.createdAt %></h5>
+    <p><%= result.body %></p>
+  <% }) %>
+</div>
+
+<% include partials/_footer %>
